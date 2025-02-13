@@ -1,5 +1,4 @@
-# End-to-End-Data-Engineering-project
-# Real-Time Data Pipeline Project
+# End-to-End-Real-Time-Data-Engineering-project
 
 ## 📌 Overview
 This project is a hands-on implementation of a **real-time data pipeline** using **Apache Airflow, Kafka, Spark Streaming, and Cassandra**. The pipeline is designed to extract data from an external API, stream it via Kafka, process it with Spark Streaming, and store the results in Cassandra. This project is built from scratch to demonstrate how modern data engineering tools work together to handle real-time data processing and analytics.
@@ -75,7 +74,7 @@ kafka-console-consumer.sh --topic users_stream --from-beginning --bootstrap-serv
 - ![Kafka Consumer](screenshots/kafka-console-consumer.png)
 
 ### 3️⃣ Monitor Spark Processing
-- Access Spark UI: [http://localhost:4040](http://localhost:4040)
+- Access Spark UI: [http://localhost:9090](http://localhost:9090)
 📸 **Screenshots:**
 - ![Spark UI](screenshots/spark-ui.png)
 - ![Spark Jobs](screenshots/spark-job-details.png)
@@ -87,6 +86,7 @@ cqlsh> SELECT * FROM users_stream;
 ```
 📸 **Screenshots:**
 - ![Cassandra Query](screenshots/cassandra-query.png)
+- ![Cassandra Query2](screenshots/cassandra-query2.png)
 
 ## 🔥 Additional Notes for Beginners
 If you're new to real-time data engineering, here are some key takeaways:
