@@ -91,7 +91,7 @@ kafka-console-consumer.sh --topic users_stream --from-beginning --bootstrap-serv
 ### 4️⃣ Query Data in Cassandra
 To check stored data, connect to Cassandra using cqlsh:
 ```bash
-cqlsh> SELECT * FROM users_stream;
+cqlsh> SELECT * FROM spark_streams.users_stream;
 ```
 📸 **Screenshots:**
 - ![Cassandra Query](screenshots/cassandra-query.png)
