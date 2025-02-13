@@ -86,7 +86,7 @@ cqlsh> SELECT * FROM users_stream;
 ```
 📸 **Screenshots:**
 - ![Cassandra Query](screenshots/cassandra-query.png)
-- ![Cassandra Query2](screenshots/cassandra-query2.png)
+- ![Cassandra Query](screenshots/cassandra-query2.png)
 
 ## 🔥 Additional Notes for Beginners
 If you're new to real-time data engineering, here are some key takeaways:
