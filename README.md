@@ -31,6 +31,7 @@ Below is the architecture of the pipeline showcasing the data flow from extracti
 
 ![Pipeline Architecture](screenshots/architecture.png)
 
+
 ### **Pipeline Steps:**
 1. **Airflow DAG** triggers the data ingestion process.
 2. **Kafka Producer** sends extracted data to Kafka topics.
@@ -45,10 +46,18 @@ Ensure you have the following installed before proceeding:
 - **Git**
 - **Kafka & Zookeeper (via Docker)**
 
+## ⚙️ Project Setup Guide
+### Prerequisites
+Ensure you have the following installed before proceeding:
+- **Docker & Docker Compose**
+- **Python 3.x**
+- **Git**
+- **Kafka & Zookeeper (via Docker)**
+
 ### Clone This Repository
 ```bash
-git clone https://github.com/Saivani-Mehatha/Real-Time-Data-Pipeline.git
-cd Real-Time-Data-Pipeline
+git clone https://github.com/Saivani-Mehatha/End-to-End-Data-Engineering-project.git
+cd End-to-End-Data-Engineering-project
 ```
 
 ### Install Python Dependencies
@@ -63,13 +72,30 @@ docker-compose up -d
 
 This will spin up all necessary services, including Kafka, Zookeeper, and Cassandra.
 
+### 🔗 Accessing the Services  
+
+Ensure Docker is running before accessing these services:  
+
+- **Airflow UI** → [http://localhost:8080](http://localhost:8080)  
+- **Spark UI** → [http://localhost:9090](http://localhost:9090)  
+- **Kafka UI (Confluent)** → [http://localhost:9021](http://localhost:9021)  
+
+
+> **🚀 Important:**  
+> - Run `docker-compose up -d` to start all services.  
+> - If Docker is stopped, these URLs **won't work**. Restart with `docker-compose up -d`.  
+
 ## ▶️ Running the Pipeline
 ### 1️⃣ Start Airflow & Trigger DAG
+
+
 - Open Airflow UI: [http://localhost:8080](http://localhost:8080)
 - Enable & trigger the DAG `real_time_pipeline`
 
 📸 **Screenshots:**
+
 - ![DAG Execution](screenshots/airflow-dag.png)
+
 - ![Task Logs](screenshots/airflow-task-logs.png)
 
 ### 2️⃣ Validate Kafka Streaming
@@ -79,13 +105,18 @@ kafka-topics.sh --list --bootstrap-server localhost:9092
 kafka-console-consumer.sh --topic users_stream --from-beginning --bootstrap-server localhost:9092
 ```
 �� **Screenshots:**
+
 - ![Kafka Topics](screenshots/kafka-topics.png)
+
 - ![Kafka Consumer](screenshots/kafka-console-consumer.png)
 
 ### 3️⃣ Monitor Spark Processing
 - Access Spark UI: [http://localhost:9090](http://localhost:9090)
+
 📸 **Screenshots:**
+
 - ![Spark UI](screenshots/spark-ui.png)
+
 - ![Spark Jobs](screenshots/spark-job-details.png)
 
 ### 4️⃣ Query Data in Cassandra
@@ -94,7 +125,9 @@ To check stored data, connect to Cassandra using cqlsh:
 cqlsh> SELECT * FROM spark_streams.users_stream;
 ```
 📸 **Screenshots:**
+
 - ![Cassandra Query](screenshots/cassandra-query.png)
+
 - ![Cassandra Query](screenshots/cassandra-query2.png)
 
 ## 🔥 Additional Notes for Beginners
